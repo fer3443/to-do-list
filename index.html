@@ -14,7 +14,61 @@
     />
   </head>
   <body>
-    
+    <main>
+      <section class="containerForm">
+        <form action="">
+          <h2>Agregar una tarea nueva</h2>
+          <div class="boxInputs">
+            <label for="">Título de la tarea</label>
+            <input type="text" name="" id="" maxlength="30">
+          </div>
+          <div class="boxInputs">
+            <label for="">Descripción</label>
+            <input type="text" name="" id="">
+          </div>
+          <div class="boxInputs">
+            <label for="">Elige una fecha</label>
+            <input type="date" name="" id="">
+          </div>
+          <div class="boxInputs">
+            <label for="">Elige un horario</label>
+            <input type="datetime" name="" id="">
+          </div>
+          <!-- <div class="boxInputs">
+            <label for="">Estado de la tarea</label>
+            <select name="" id="">
+              <option value="realizada">Realizada</option>
+              <option value="realizando">Realizando</option>
+              <option value="sinRealizar">Sin realizar</option>
+            </select>
+          </div> -->
+          <button class="btnSubmit">agregar</button>
+        </form>
+      </section>
+      <section class="containerList">
+        <div class="containerTask">
+          <h2>Lista de Tareas</h2>
+          <div class="taskHead">
+            <div class="taskDate">
+              <p>Miercoles 09</p>
+              <p>Agosto</p>
+            </div>
+            <div class="taskCount">
+              <p>5 tareas</p>
+            </div>
+          </div>
+          <button class="btnAddTask">+</button>
+          <div class="taskBody">
+            <input type="checkbox" name="" id="">
+            <p>Tarea de ejemplo</p>
+            <p>hora de tarea</p>
+            <p>estado de la tarea</p>
+            <button class="btnUpdateTask">modificar</button>
+            <button class="btnDeleteTask">borrar</button>
+          </div>
+        </div>
+      </section>
+    </main>
     <!--script-->
     <script src="index.js"></script>
     <!--Iconos-->
