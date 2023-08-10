@@ -16,23 +16,30 @@
   <body>
     <main>
       <section class="containerForm">
+        <div class="boxColor"></div>
         <form action="">
-          <h2>Agregar una tarea nueva</h2>
+          <h3>Agregar una tarea nueva</h3>
           <div class="boxInputs">
             <label for="">Título de la tarea</label>
-            <input type="text" name="" id="" maxlength="30">
+            <input type="text" name="" id="" maxlength="30" />
           </div>
           <div class="boxInputs">
             <label for="">Descripción</label>
-            <input type="text" name="" id="">
+            <input type="text" name="" id="" />
           </div>
           <div class="boxInputs">
             <label for="">Elige una fecha</label>
-            <input type="date" name="" id="">
+            <input type="date" name="" id="" />
           </div>
           <div class="boxInputs">
-            <label for="">Elige un horario</label>
-            <input type="datetime" name="" id="">
+            <label for="hora">Hora:</label>
+            <input
+              type="text"
+              id="hora"
+              name="hora"
+              pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+              placeholder="HH:MM"
+            />
           </div>
           <!-- <div class="boxInputs">
             <label for="">Estado de la tarea</label>
@@ -57,9 +64,8 @@
               <p>5 tareas</p>
             </div>
           </div>
-          <button class="btnAddTask">+</button>
           <div class="taskBody">
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="" id="" />
             <p>Tarea de ejemplo</p>
             <p>hora de tarea</p>
             <p>estado de la tarea</p>

@@ -7,41 +7,46 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
-    padding: 2rem;
-    color: #fff;
 }
 main {
-    background-color: #3C424A;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);
+    background-color: #1C1A39;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100%;
 }
-section {
-    background-color: #343A40;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.5);;
-    width: 35%;
-    height: 80%;
-    padding: 1.5rem 2rem;
+.boxColor {
+    position: absolute;
+    background-image: linear-gradient(to bottom right, #FE5DAB, #a427d6);
+    border-radius: 0 15px;
+    width: 300px;
+    height: 300px;
+    top: -50px;
+    left: -50px;
 }
-.containerForm h2 {
-    text-align: center;
+.containerForm {
+    position: relative;
+    width: 300px;
+    height: 450px;
+}
+.containerForm h3 {
+    font-weight: normal;
     margin-bottom: 10px;
 }
 form {
+    position: absolute;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    background-color: #121129;
+    border-radius: 15px;
+    color: #AFACE6;
+    align-items: flex-start;
     justify-content: space-around;
+    padding: 1.8rem 1.5rem;
+    z-index: 99999;
 }
 form .boxInputs {
     display: flex;
@@ -49,13 +54,12 @@ form .boxInputs {
     width: 100%;
 }
 form .boxInputs label {
-    font-size: 0.9rem;
-    font-weight: bold;
+    font-size: 0.8rem;
     padding: 5px 0;
 }
 form .boxInputs input {
-    background-color: #25292e;
-    border: none;
+    background-color: transparent;
+    border: 1px solid #aface6d5;
     border-radius: 3px;
     color: #767a80;
     font-size: 0.9rem;
@@ -65,17 +69,18 @@ form .boxInputs input:focus {
     outline: none;
 }
 .btnSubmit {
-    background-color: #767a80;
+    background-color: #756BFF;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     color: #fff;
     border: none;
     border-radius: 5px;
     font-size: 1rem;
-    font-weight: bold;
     padding: 10px 20px;
     margin-top: 5px;
     transition: 0.3s background-color;
+    width: 100%;
 }
 .btnSubmit:hover {
-    background-color: #36ff2f;
+    background-color: lightgray;
     color: #000;
 }
