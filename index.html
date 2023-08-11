@@ -21,26 +21,31 @@
           <h3>Agregar una tarea nueva</h3>
           <div class="boxInputs">
             <label for="">Título de la tarea</label>
-            <input type="text" name="" id="" maxlength="30" />
+            <input type="text" name="" id="taskTitle" maxlength="30" required />
           </div>
           <div class="boxInputs">
             <label for="">Descripción</label>
-            <input type="text" name="" id="" />
+            <input type="text" name="" id="taskDescription" />
           </div>
-          <div class="boxInputs">
-            <label for="">Elige una fecha</label>
-            <input type="date" name="" id="" />
+          <div class="boxInputsDate">
+            <div class="inputDate">
+              <label for="">Elige una fecha</label>
+              <input type="date" name="" id="taskDate" required />
+            </div>
+            <div class="inputTime">
+              <label for="taskTime">Hora:</label>
+              <input
+                type="text"
+                id="taskTime"
+                name="hora"
+                pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
+                placeholder="HH:MM"
+              />
+            </div>
           </div>
-          <div class="boxInputs">
-            <label for="hora">Hora:</label>
-            <input
-              type="text"
-              id="hora"
-              name="hora"
-              pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
-              placeholder="HH:MM"
-            />
-          </div>
+          <!-- <div class="boxInputs">
+            
+          </div> -->
           <!-- <div class="boxInputs">
             <label for="">Estado de la tarea</label>
             <select name="" id="">
@@ -49,28 +54,31 @@
               <option value="sinRealizar">Sin realizar</option>
             </select>
           </div> -->
-          <button class="btnSubmit">agregar</button>
+          <button class="btnSubmit" id="btnSubmit">agregar</button>
         </form>
       </section>
       <section class="containerList">
-        <div class="containerTask">
+        <div class="boxTop"></div>
+        <div class="boxBottom"></div>
+        <div class="containerTask" id="containerTask">
           <h2>Lista de Tareas</h2>
-          <div class="taskHead">
-            <div class="taskDate">
-              <p>Miercoles 09</p>
-              <p>Agosto</p>
-            </div>
-            <div class="taskCount">
-              <p>5 tareas</p>
-            </div>
+          <div class="taskCount">
+            <p>5 tareas</p>
           </div>
-          <div class="taskBody">
-            <input type="checkbox" name="" id="" />
-            <p>Tarea de ejemplo</p>
-            <p>hora de tarea</p>
-            <p>estado de la tarea</p>
-            <button class="btnUpdateTask">modificar</button>
-            <button class="btnDeleteTask">borrar</button>
+          <div class="taskCard">
+            <div class="taskHead">
+              <h3>nombre de ejemplo</h3>
+              <p>11/08/2023</p>
+              <p>hora de tarea</p>
+            </div>
+            <div class="taskBody">
+              <input type="checkbox" name="inputCheck" id="inputCheck" />            
+              <p class="description" id="descriptionTask">descripcion tarea</p>
+              <div class="boxBtn">
+                <button class="btnUpdateTask"><box-icon color="#d8e700" name='pencil'></box-icon></button>
+                <button class="btnDeleteTask"><box-icon color="red" name='message-square-x'></box-icon></button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
