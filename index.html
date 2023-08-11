@@ -20,24 +20,24 @@
         <form action="">
           <h3>Agregar una tarea nueva</h3>
           <div class="boxInputs">
-            <label for="">Título de la tarea</label>
-            <input type="text" name="" id="taskTitle" maxlength="30" required />
+            <label for="taskTitle">Título de la tarea</label>
+            <input type="text" name="taskTitle" id="taskTitle" maxlength="30" required />
           </div>
           <div class="boxInputs">
-            <label for="">Descripción</label>
-            <input type="text" name="" id="taskDescription" />
+            <label for="taskDescription">Descripción</label>
+            <input type="text" name="taskDescription" id="taskDescription" />
           </div>
           <div class="boxInputsDate">
             <div class="inputDate">
-              <label for="">Elige una fecha</label>
-              <input type="date" name="" id="taskDate" required />
+              <label for="taskDate">Elige una fecha</label>
+              <input type="date" name="taskDate" id="taskDate" required />
             </div>
             <div class="inputTime">
               <label for="taskTime">Hora:</label>
               <input
                 type="text"
                 id="taskTime"
-                name="hora"
+                name="taskTime"
                 pattern="([01]?[0-9]|2[0-3]):[0-5][0-9]"
                 placeholder="HH:MM"
               />
