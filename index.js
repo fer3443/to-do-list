@@ -39,3 +39,26 @@ btnSubmit.addEventListener("click", (e) => {
     //ahora procedo a guardar en el LS el array de tasks
     localStorage.setItem('tasks', JSON.stringify(tasks))
 })
+//capturo el contenedor donde voy a insertar las cards de las tareas
+const cardContainer = document.querySelector('#cardContainer')
+const taskAdded = JSON.parse(localStorage.getItem('tasks'))
+taskAdded.forEach((item) => {
+    const taskCard = document.createElement('div')
+		taskCard.classList.add('taskCard')
+    taskCard.innerHTML = `
+    <div class="taskHead">
+        <h3>${item.title}</h3>
+        <p>${item.date}</p>
+        <p>${item.time}</p>
+    </div>
+    <div class="taskBody">
+			<input type="checkbox" name="inputCheck" id="inputCheck" />            
+			<p class="description">${item.description}</p>
+			<div class="boxBtn">
+					<button class="btnUpdateTask"><box-icon color="#d8e700" name='pencil'></box-icon></button>
+					<button class="btnDeleteTask"><box-icon color="red" name='message-square-x'></box-icon></button>
+			</div>
+    </div>
+    `
+		cardContainer.appendChild(taskCard)
+})
