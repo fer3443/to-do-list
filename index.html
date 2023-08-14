@@ -18,6 +18,9 @@
       <div id="validateTask" class="validateTask">
         <span>Debe completar todos los campos!</span>
       </div>
+      <div class="taskSuccessfully" id="taskSuccessfully">
+        <span>Tarea agregada con éxito!</span>
+      </div>
       <section class="containerForm">
         <div class="boxColor"></div>
         <form id="form">
@@ -33,7 +36,7 @@
           <div class="boxInputsDate">
             <div class="inputDate">
               <label for="taskDate">Elige una fecha</label>
-              <input type="date" name="taskDate" id="taskDate" required />
+              <input type="date" name="taskDate" id="taskDate" />
             </div>
             <div class="inputTime">
               <label for="taskTime">Hora:</label>
@@ -65,8 +68,7 @@
         <div class="boxBottom"></div>
         <div class="containerTask" id="containerTask">
           <h2>Lista de Tareas</h2>
-          <div class="taskCount">
-            <p>5 tareas</p>
+          <div class="taskCount" id="taskCount">
           </div>
           <div class="cardContainer" id="cardContainer">
           </div>

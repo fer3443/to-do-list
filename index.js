@@ -1,5 +1,6 @@
 const btnSubmit = document.querySelector("#btnSubmit");
-const validateTask = document.querySelector('#validateTask')
+const validateTask = document.querySelector('#validateTask');
+const taskSuccessfully = document.querySelector('#taskSuccessfully');
 const inputTitle = document.querySelector("#taskTitle");
 const inputDescription = document.querySelector("#taskDescription");
 const inputDate = document.querySelector('#taskDate');
@@ -21,16 +22,28 @@ class Task {
         this.time = time
     }
 }
+function succesfully(){
+	return (
+		taskSuccessfully.classList.toggle('active'),
+	setTimeout(() => {
+		taskSuccessfully.classList.toggle('active'),
+		location.reload()
+	}, 2000)
+	)
 
+}
 btnSubmit.addEventListener("click", (e) => {
     e.preventDefault()
-    const title = inputTitle.value
+    const title = inputTitle.value.trim()//para eliminar los espacios innecesarios
     const description = inputDescription.value
     const date = inputDate.value
-    const time = inputTime.value
+    let time = inputTime.value
     //validaciones
-    if(!title || !description || !date || !time){
-        return alert('debe completar todos los campos')
+    if(!title || !description || !date ){
+			return (validateTask.classList.toggle('active'),
+			setTimeout(() => {
+				validateTask.classList.toggle('active')
+			}, 2000))				
     }
     //instanceo una nueva tarea, que recibe como parametro los sgtes datos:
     const newTask = new Task (title, description, date, time)
@@ -38,27 +51,45 @@ btnSubmit.addEventListener("click", (e) => {
     form.reset()
     //ahora procedo a guardar en el LS el array de tasks
     localStorage.setItem('tasks', JSON.stringify(tasks))
+		succesfully()
 })
+
+
 //capturo el contenedor donde voy a insertar las cards de las tareas
+const taskCount = document.querySelector('#taskCount')
 const cardContainer = document.querySelector('#cardContainer')
 const taskAdded = JSON.parse(localStorage.getItem('tasks'))
-taskAdded.forEach((item) => {
-    const taskCard = document.createElement('div')
-		taskCard.classList.add('taskCard')
-    taskCard.innerHTML = `
-    <div class="taskHead">
-        <h3>${item.title}</h3>
-        <p>${item.date}</p>
-        <p>${item.time}</p>
-    </div>
-    <div class="taskBody">
-			<input type="checkbox" name="inputCheck" id="inputCheck" />            
-			<p class="description">${item.description}</p>
-			<div class="boxBtn">
+//en caso de no haber tareas renderizo un aviso "tareas vacias"
+if(!localStorage.getItem('tasks')){
+    const taskEmpty = document.createElement('div')
+    taskEmpty.classList.add('tasksEmpty')
+    taskEmpty.innerHTML = "<h4>No hay tareas agregadas</h4>"
+    cardContainer.appendChild(taskEmpty)
+}else{
+	taskAdded.forEach((item) => {
+			const taskCard = document.createElement('div')
+					taskCard.classList.add('taskCard')
+			taskCard.innerHTML = `
+			<div class="taskHead">
+					<h3>${item.title}</h3>
+					<p>${item.date}</p>
+					<p>${item.time || "sin horario"}</p>
+			</div>
+			<div class="taskBody">
+				<input type="checkbox" name="inputCheck" id="inputCheck" />            
+				<p class="description">${item.description}</p>
+				<div class="boxBtn">
 					<button class="btnUpdateTask"><box-icon color="#d8e700" name='pencil'></box-icon></button>
 					<button class="btnDeleteTask"><box-icon color="red" name='message-square-x'></box-icon></button>
+				</div>
 			</div>
-    </div>
-    `
-		cardContainer.appendChild(taskCard)
-})
+			`
+			cardContainer.appendChild(taskCard)
+	})
+}
+
+if(taskAdded == null){
+     taskCount.innerHTML = '<p>0 Tareas</p>'
+}else{
+     taskCount.innerHTML = `<p>${taskAdded.length} Tareas</p>`
+}

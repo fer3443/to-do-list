@@ -208,3 +208,31 @@ form .boxInputs input:focus, .boxInputsDate input:focus {
     opacity: 1;
     transition: all 0.3s ease-in-out;
 }
+.taskSuccessfully {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    background-color: #26262c;
+    border-left: 4px solid #04a704;
+    border-radius: 10px;
+    top: 30px;
+    padding: 10px 20px;
+    text-align: center;
+    color: #04a704;
+    height: 50px;
+    width: auto;
+    opacity: 0;
+    transition: 0.3s ease-in-out opacity;
+    z-index: 99999;
+}
+.taskSuccessfully.active {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+/* Renderizado condicional*/
+.tasksEmpty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
