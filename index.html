@@ -12,9 +12,52 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap"
       rel="stylesheet"
     />
+    <!--Bootstrap-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <main>
+    <main><div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">
+              Modal title
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
       <div id="validateTask" class="validateTask">
         <span>Debe completar todos los campos!</span>
       </div>
@@ -27,7 +70,13 @@
           <h3>Agregar una tarea nueva</h3>
           <div class="boxInputs">
             <label for="taskTitle">Título de la tarea</label>
-            <input type="text" name="taskTitle" id="taskTitle" maxlength="30" required />
+            <input
+              type="text"
+              name="taskTitle"
+              id="taskTitle"
+              maxlength="30"
+              required
+            />
           </div>
           <div class="boxInputs">
             <label for="taskDescription">Descripción</label>
@@ -49,17 +98,6 @@
               />
             </div>
           </div>
-          <!-- <div class="boxInputs">
-            
-          </div> -->
-          <!-- <div class="boxInputs">
-            <label for="">Estado de la tarea</label>
-            <select name="" id="">
-              <option value="realizada">Realizada</option>
-              <option value="realizando">Realizando</option>
-              <option value="sinRealizar">Sin realizar</option>
-            </select>
-          </div> -->
           <button class="btnSubmit" id="btnSubmit">agregar</button>
         </form>
       </section>
@@ -68,13 +106,17 @@
         <div class="boxBottom"></div>
         <div class="containerTask" id="containerTask">
           <h2>Lista de Tareas</h2>
-          <div class="taskCount" id="taskCount">
-          </div>
-          <div class="cardContainer" id="cardContainer">
-          </div>
+          <div class="taskCount" id="taskCount"></div>
+          <div class="cardContainer" id="cardContainer"></div>
         </div>
       </section>
     </main>
+    <!--Bootstrap JS-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
     <!--script-->
     <script src="index.js"></script>
     <!--Iconos-->

@@ -47,7 +47,7 @@ form {
     align-items: flex-start;
     justify-content: space-around;
     padding: 1.8rem 1.5rem;
-    z-index: 99999;
+    z-index: 2;
 }
 form .boxInputs {
     display: flex;
@@ -138,7 +138,7 @@ form .boxInputs input:focus, .boxInputsDate input:focus {
     margin-bottom: 10px;
 }
 .cardContainer {
-    height: 85%;
+    height: 80%;
     overflow-y: scroll;
 }
 .taskCard {
@@ -167,9 +167,6 @@ form .boxInputs input:focus, .boxInputsDate input:focus {
     height: 50px;
     width: 75%;
 }
-/* .taskBody input[type="checkbox"] {
-    font-size: 2rem;
-} */
 .boxBtn {
     display: flex;
     justify-content: space-between;
