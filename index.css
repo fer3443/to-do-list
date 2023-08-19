@@ -146,16 +146,19 @@ form .boxInputs input:focus, .boxInputsDate input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    height: 100px;
+    height: 110px;
     font-size: 0.8rem;
-    padding: 10px;
+    padding: 15px 10px;
     margin: 10px 0;
 }
 .taskHead {
-    display: flex;
-    justify-content: space-around;
+    height: 20%;
+}
+.taskHead p {
+    font-size: 0.9rem;
 }
 .taskBody {
+    height: 80%;
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -7,11 +7,14 @@ const inputDate = document.querySelector("#taskDate");
 const inputTime = document.querySelector("#taskTime");
 //capturo el formulario para poder limpiarlo luego de enviar los valores
 const form = document.querySelector("#form");
+const formModal = document.querySelector("#modalForm");
 //creo un array Tareas que almacena las tareas que voy pusheando desde newTask
 let tasks = [];
 //capturo el contenedor donde voy a insertar las cards de las tareas
 const taskCount = document.querySelector("#taskCount");
 const cardContainer = document.querySelector("#cardContainer");
+//modal de BS
+var myModal = new bootstrap.Modal(document.getElementById('modalTask'))
 //como el array tasks se vacia si actualizo y pusheo una nueva tarea le digo que tome los datos de LS si es que hay sino que tome el array vacio
 if (localStorage.getItem("tasks")) {
   tasks = JSON.parse(localStorage.getItem("tasks"));
@@ -51,20 +54,20 @@ function addTask() {
     const taskCard = document.createElement("div");
     taskCard.classList.add("taskCard");
     taskCard.innerHTML = `
-		<div class="taskHead">
-				<h3>${item.title}</h3>
+		<div class="taskHead d-flex justify-content-between align-item-center">
+				<h5>${item.title}</h5>
 				<p>${item.date}</p>
 				<p>${item.time || "sin horario"}</p>
 		</div>
-		<div class="taskBody">
-			<input type="checkbox" name="inputCheck" id="inputCheck" />            
+		<div class="taskBody">           
 			<p class="description">${item.description}</p>
 			<div class="boxBtn">
 			<button
 			type="button"
 			class="btnUpdateTask"
 			data-bs-toggle="modal"
-			data-bs-target="#exampleModal"
+			data-bs-target="#modalTask"
+      onclick="loadUpdateTask(${item.id})"
 		>
 		<box-icon color="#d8e700" name='pencil'></box-icon>
 		</button>
@@ -123,7 +126,33 @@ function deleteTask(id) {
     countTask();
   }
 }
-function updateTask(id) {
-  let index = tasks.findIndex((item) => item.id == id);
-  console.log(tasks[index].title);
+//creo una variable nula para almacenar a futuro el id que recibo de la tarea a modificar
+let idTaskUpdate = null;
+
+function loadUpdateTask(id) {
+
+  idTaskUpdate = id
+  let index = tasks.findIndex((item) => item.id == idTaskUpdate);
+  //capturo los inputs del formModal y los completo con los datos de la tarea almacenada en el array de tasks
+  document.querySelector("#updateTaskTitle").value = tasks[index].title;
+  document.querySelector("#updateTaskDescription").value =
+    tasks[index].description;
+  document.querySelector("#updateTaskDate").value = tasks[index].date;
+  document.querySelector("#updateTaskTime").value = tasks[index].time;
 }
+
+function updateTask(e) {
+  e.preventDefault();
+  let index = tasks.findIndex((item) => item.id == idTaskUpdate);
+  //a los datos almacenados en el array de tasks los modifico con los nuevos valores que ingreso por inputs del formModal
+  tasks[index].title = document.querySelector("#updateTaskTitle").value
+  tasks[index].description = document.querySelector("#updateTaskDescription").value
+  tasks[index].date = document.querySelector("#updateTaskDate").value
+  tasks[index].time = document.querySelector("#updateTaskTime").value
+  //almaceno los datos en el LS
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  addTask()
+  myModal.hide()//cierro el modal de bs
+  succesfully()
+}
+formModal.addEventListener("submit", updateTask);
